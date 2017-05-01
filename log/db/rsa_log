@@ -1,77 +1,81 @@
-2017-04-25T00:15:26.464+0800 I CONTROL  [initandlisten] MongoDB starting : pid=3401 port=27017 dbpath=/data/db/ArticleRecommend/RS_A 64-bit host=myarch
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] db version v3.4.1
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] git version: 5e103c4f5583e2566a45d740225dc250baacfbd7
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2k  26 Jan 2017
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] allocator: tcmalloc
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] modules: none
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] build environment:
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten]     distarch: x86_64
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten]     target_arch: x86_64
-2017-04-25T00:15:26.465+0800 I CONTROL  [initandlisten] options: { config: "../conf/mongo_rsa.conf", net: { bindIp: "127.0.0.1", port: 27017 }, replication: { replSet: "ArticleRecommend/127.0.0.1:27018" }, storage: { dbPath: "/data/db/ArticleRecommend/RS_A" } }
-2017-04-25T00:15:26.519+0800 I -        [initandlisten] Detected data files in /data/db/ArticleRecommend/RS_A created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
-2017-04-25T00:15:26.519+0800 I STORAGE  [initandlisten] 
-2017-04-25T00:15:26.519+0800 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
-2017-04-25T00:15:26.519+0800 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2017-04-25T00:15:26.519+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3455M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
-2017-04-25T00:15:26.996+0800 I STORAGE  [initandlisten] Starting WiredTigerRecordStoreThread local.oplog.rs
-2017-04-25T00:15:26.996+0800 I STORAGE  [initandlisten] The size storer reports that the oplog contains 1986 records totaling to 190745 bytes
-2017-04-25T00:15:26.996+0800 I STORAGE  [initandlisten] Scanning the oplog to determine where to place markers for truncation
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] 
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] 
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] 
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
-2017-04-25T00:15:27.051+0800 I CONTROL  [initandlisten] 
-2017-04-25T00:15:27.062+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/ArticleRecommend/RS_A/diagnostic.data'
-2017-04-25T00:15:27.063+0800 I NETWORK  [thread1] waiting for connections on port 27017
-2017-04-25T00:15:27.064+0800 I REPL     [replExecDBWorker-2] New replica set config in use: { _id: "ArticleRecommend", version: 1, protocolVersion: 1, members: [ { _id: 1, host: "127.0.0.1:27017", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "127.0.0.1:27018", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 3, host: "127.0.0.1:27019", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatIntervalMillis: 2000, heartbeatTimeoutSecs: 10, electionTimeoutMillis: 10000, catchUpTimeoutMillis: 2000, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 }, replicaSetId: ObjectId('58fb06e78ce5dfb09a45ea25') } }
-2017-04-25T00:15:27.064+0800 I REPL     [replExecDBWorker-2] This node is 127.0.0.1:27017 in the config
-2017-04-25T00:15:27.064+0800 I REPL     [replExecDBWorker-2] transition to STARTUP2
-2017-04-25T00:15:27.064+0800 I REPL     [replExecDBWorker-2] Starting replication storage threads
-2017-04-25T00:15:27.065+0800 I REPL     [replExecDBWorker-2] Starting replication fetcher thread
-2017-04-25T00:15:27.065+0800 I REPL     [replExecDBWorker-2] Starting replication applier thread
-2017-04-25T00:15:27.065+0800 I REPL     [replExecDBWorker-2] Starting replication reporter thread
-2017-04-25T00:15:27.066+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
-2017-04-25T00:15:27.066+0800 I REPL     [rsSync] transition to RECOVERING
-2017-04-25T00:15:27.066+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27019
-2017-04-25T00:15:27.066+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 127.0.0.1:27018
-2017-04-25T00:15:27.067+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 127.0.0.1:27019
-2017-04-25T00:15:27.067+0800 I REPL     [ReplicationExecutor] Member 127.0.0.1:27018 is now in state SECONDARY
-2017-04-25T00:15:27.068+0800 I REPL     [ReplicationExecutor] Member 127.0.0.1:27019 is now in state SECONDARY
-2017-04-25T00:15:27.068+0800 I REPL     [rsSync] transition to SECONDARY
-2017-04-25T00:15:31.993+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50028 #1 (1 connection now open)
-2017-04-25T00:15:31.993+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:50028 conn1: { driver: { name: "NetworkInterfaceASIO-Replication", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
-2017-04-25T00:15:32.028+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50032 #2 (2 connections now open)
-2017-04-25T00:15:32.028+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:50032 conn2: { driver: { name: "NetworkInterfaceASIO-Replication", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
-2017-04-25T00:15:37.503+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50034 #3 (3 connections now open)
-2017-04-25T00:15:37.503+0800 I NETWORK  [conn3] received client metadata from 127.0.0.1:50034 conn3: { driver: { name: "NetworkInterfaceASIO-Replication", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
-2017-04-25T00:15:42.071+0800 I REPL     [ReplicationExecutor] Member 127.0.0.1:27019 is now in state PRIMARY
-2017-04-25T00:15:43.068+0800 I REPL     [rsBackgroundSync] sync source candidate: 127.0.0.1:27019
-2017-04-25T00:15:43.068+0800 I ASIO     [NetworkInterfaceASIO-RS-0] Connecting to 127.0.0.1:27019
-2017-04-25T00:15:43.069+0800 I ASIO     [NetworkInterfaceASIO-RS-0] Successfully connected to 127.0.0.1:27019
-2017-04-25T00:15:43.070+0800 I ASIO     [NetworkInterfaceASIO-RS-0] Connecting to 127.0.0.1:27019
-2017-04-25T00:15:43.071+0800 I ASIO     [NetworkInterfaceASIO-RS-0] Successfully connected to 127.0.0.1:27019
-2017-04-25T00:16:37.504+0800 I -        [conn1] end connection 127.0.0.1:50028 (3 connections now open)
-2017-04-25T00:16:41.707+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50054 #4 (3 connections now open)
-2017-04-25T00:16:41.707+0800 I NETWORK  [conn4] received client metadata from 127.0.0.1:50054 conn4: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
-2017-04-25T00:16:42.704+0800 I -        [conn4] end connection 127.0.0.1:50054 (3 connections now open)
-2017-04-25T01:00:31.780+0800 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
-2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
-2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] closing listening socket: 6
-2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] closing listening socket: 7
-2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
-2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
-2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] shutting down replication subsystems
-2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] Stopping replication reporter thread
-2017-04-25T01:00:31.780+0800 I REPL     [SyncSourceFeedback] SyncSourceFeedback error sending update to 127.0.0.1:27019: CallbackCanceled: Reporter no longer valid
-2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] Stopping replication fetcher thread
-2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] Stopping replication applier thread
-2017-04-25T01:00:31.782+0800 I REPL     [signalProcessingThread] Stopping replication storage threads
-2017-04-25T01:00:31.783+0800 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
-2017-04-25T01:00:31.787+0800 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
-2017-04-25T01:00:31.854+0800 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
-2017-04-25T01:00:31.855+0800 I CONTROL  [signalProcessingThread] now exiting
-2017-04-25T01:00:31.855+0800 I CONTROL  [signalProcessingThread] shutting down with code:0
-2017-04-25T01:00:31.855+0800 I CONTROL  [initandlisten] shutting down with code:0
+Mon May  1 22:46:29.123 [initandlisten] MongoDB starting : pid=3914 port=27017 dbpath=/data/db/ArticalRecommend/RS_A 64-bit host=VM-168-81-ubuntu
+Mon May  1 22:46:29.123 [initandlisten] db version v2.4.9
+Mon May  1 22:46:29.123 [initandlisten] git version: nogitversion
+Mon May  1 22:46:29.123 [initandlisten] build info: Linux orlo 3.2.0-58-generic #88-Ubuntu SMP Tue Dec 3 17:37:58 UTC 2013 x86_64 BOOST_LIB_VERSION=1_54
+Mon May  1 22:46:29.123 [initandlisten] allocator: tcmalloc
+Mon May  1 22:46:29.123 [initandlisten] options: { bind_ip: "127.0.0.1", config: "../conf/mongo_rsa.conf", dbpath: "/data/db/ArticalRecommend/RS_A", port: 27017, replSet: "ArticalRecommend/127.0.0.1:27018" }
+Mon May  1 22:46:29.129 [initandlisten] journal dir=/data/db/ArticalRecommend/RS_A/journal
+Mon May  1 22:46:29.129 [initandlisten] recover : no journal files present, no recovery needed
+Mon May  1 22:46:29.438 [initandlisten] preallocateIsFaster=true 5.04
+Mon May  1 22:46:29.590 [initandlisten] waiting for connections on port 27017
+Mon May  1 22:46:29.590 [websvr] admin web console waiting for connections on port 28017
+Mon May  1 22:46:29.592 [rsStart] trying to contact 127.0.0.1:27018
+Mon May  1 22:46:29.594 [initandlisten] connection accepted from 127.0.0.1:53514 #1 (1 connection now open)
+Mon May  1 22:46:29.594 [rsStart] replSet I am 127.0.0.1:27017
+Mon May  1 22:46:29.594 [rsStart] replSet STARTUP2
+Mon May  1 22:46:29.596 [rsHealthPoll] replset info 127.0.0.1:27018 thinks that we are down
+Mon May  1 22:46:29.596 [rsHealthPoll] replSet member 127.0.0.1:27018 is up
+Mon May  1 22:46:29.596 [rsHealthPoll] replSet member 127.0.0.1:27018 is now in state STARTUP2
+Mon May  1 22:46:29.596 [rsHealthPoll] replSet member 127.0.0.1:27019 is up
+Mon May  1 22:46:29.596 [rsHealthPoll] replSet member 127.0.0.1:27019 is now in state STARTUP2
+Mon May  1 22:46:30.595 [rsSync] replSet SECONDARY
+Mon May  1 22:46:31.579 [initandlisten] connection accepted from 127.0.0.1:53519 #2 (2 connections now open)
+Mon May  1 22:46:31.580 [initandlisten] connection accepted from 127.0.0.1:53520 #3 (3 connections now open)
+Mon May  1 22:46:31.580 [conn2] end connection 127.0.0.1:53519 (2 connections now open)
+Mon May  1 22:46:31.596 [rsHealthPoll] replSet member 127.0.0.1:27018 is now in state SECONDARY
+Mon May  1 22:46:31.597 [rsHealthPoll] replSet member 127.0.0.1:27019 is now in state SECONDARY
+Mon May  1 22:46:31.597 [rsMgr] not electing self, 127.0.0.1:27019 would veto with 'I don't think 127.0.0.1:27017 is electable'
+Mon May  1 22:46:31.598 [rsMgr] not electing self, 127.0.0.1:27019 would veto with 'I don't think 127.0.0.1:27017 is electable'
+Mon May  1 22:46:32.885 [initandlisten] connection accepted from 127.0.0.1:53522 #4 (3 connections now open)
+Mon May  1 22:46:34.412 [conn4] end connection 127.0.0.1:53522 (2 connections now open)
+Mon May  1 22:46:37.979 [conn3] replSet info voting yea for 127.0.0.1:27018 (2)
+Mon May  1 22:46:38.153 [rsMgr] replSet not trying to elect self as responded yea to someone else recently
+Mon May  1 22:46:39.598 [rsHealthPoll] replSet member 127.0.0.1:27018 is now in state PRIMARY
+Mon May  1 22:46:40.596 [rsBackgroundSync] replSet syncing to: 127.0.0.1:27018
+Mon May  1 22:46:41.597 [rsSyncNotifier] replset setting oplog notifier to 127.0.0.1:27018
+Mon May  1 22:46:41.604 [rsSyncNotifier] build index local.me { _id: 1 }
+Mon May  1 22:46:41.615 [rsSyncNotifier] build index done.  scanned 0 total records. 0.011 secs
+Mon May  1 22:46:43.583 [conn3] end connection 127.0.0.1:53520 (1 connection now open)
+Mon May  1 22:46:43.583 [initandlisten] connection accepted from 127.0.0.1:53528 #5 (2 connections now open)
+Mon May  1 22:46:43.616 [conn1] end connection 127.0.0.1:53514 (1 connection now open)
+Mon May  1 22:46:43.616 [initandlisten] connection accepted from 127.0.0.1:53530 #6 (2 connections now open)
+Mon May  1 22:47:13.590 [conn5] end connection 127.0.0.1:53528 (1 connection now open)
+Mon May  1 22:47:13.590 [initandlisten] connection accepted from 127.0.0.1:53541 #7 (3 connections now open)
+Mon May  1 22:47:13.621 [conn6] end connection 127.0.0.1:53530 (1 connection now open)
+Mon May  1 22:47:13.622 [initandlisten] connection accepted from 127.0.0.1:53543 #8 (2 connections now open)
+Mon May  1 22:47:43.596 [conn7] end connection 127.0.0.1:53541 (1 connection now open)
+Mon May  1 22:47:43.596 [initandlisten] connection accepted from 127.0.0.1:53547 #9 (2 connections now open)
+Mon May  1 22:47:43.627 [conn8] end connection 127.0.0.1:53543 (1 connection now open)
+Mon May  1 22:47:43.628 [initandlisten] connection accepted from 127.0.0.1:53549 #10 (2 connections now open)
+Mon May  1 22:48:13.602 [conn9] end connection 127.0.0.1:53547 (1 connection now open)
+Mon May  1 22:48:13.602 [initandlisten] connection accepted from 127.0.0.1:53559 #11 (3 connections now open)
+Mon May  1 22:48:13.633 [conn10] end connection 127.0.0.1:53549 (1 connection now open)
+Mon May  1 22:48:13.633 [initandlisten] connection accepted from 127.0.0.1:53561 #12 (2 connections now open)
+Mon May  1 22:48:43.608 [conn11] end connection 127.0.0.1:53559 (1 connection now open)
+Mon May  1 22:48:43.608 [initandlisten] connection accepted from 127.0.0.1:53565 #13 (2 connections now open)
+Mon May  1 22:48:43.639 [conn12] end connection 127.0.0.1:53561 (1 connection now open)
+Mon May  1 22:48:43.639 [initandlisten] connection accepted from 127.0.0.1:53567 #14 (2 connections now open)
+Mon May  1 22:49:13.615 [conn13] end connection 127.0.0.1:53565 (1 connection now open)
+Mon May  1 22:49:13.615 [initandlisten] connection accepted from 127.0.0.1:53576 #15 (3 connections now open)
+Mon May  1 22:49:13.644 [conn14] end connection 127.0.0.1:53567 (1 connection now open)
+Mon May  1 22:49:13.644 [initandlisten] connection accepted from 127.0.0.1:53578 #16 (2 connections now open)
+Mon May  1 22:49:43.621 [conn15] end connection 127.0.0.1:53576 (1 connection now open)
+Mon May  1 22:49:43.622 [initandlisten] connection accepted from 127.0.0.1:53582 #17 (2 connections now open)
+Mon May  1 22:49:43.649 [conn16] end connection 127.0.0.1:53578 (1 connection now open)
+Mon May  1 22:49:43.650 [initandlisten] connection accepted from 127.0.0.1:53584 #18 (2 connections now open)
+Mon May  1 22:50:13.629 [conn17] end connection 127.0.0.1:53582 (1 connection now open)
+Mon May  1 22:50:13.630 [initandlisten] connection accepted from 127.0.0.1:53593 #19 (2 connections now open)
+Mon May  1 22:50:13.659 [conn18] end connection 127.0.0.1:53584 (1 connection now open)
+Mon May  1 22:50:13.659 [initandlisten] connection accepted from 127.0.0.1:53595 #20 (2 connections now open)
+Mon May  1 22:50:43.635 [conn19] end connection 127.0.0.1:53593 (1 connection now open)
+Mon May  1 22:50:43.635 [initandlisten] connection accepted from 127.0.0.1:53599 #21 (2 connections now open)
+Mon May  1 22:50:43.664 [conn20] end connection 127.0.0.1:53595 (1 connection now open)
+Mon May  1 22:50:43.665 [initandlisten] connection accepted from 127.0.0.1:53601 #22 (2 connections now open)
+Mon May  1 22:51:13.642 [conn21] end connection 127.0.0.1:53599 (1 connection now open)
+Mon May  1 22:51:13.642 [initandlisten] connection accepted from 127.0.0.1:53610 #23 (2 connections now open)
+Mon May  1 22:51:13.670 [conn22] end connection 127.0.0.1:53601 (1 connection now open)
+Mon May  1 22:51:13.670 [initandlisten] connection accepted from 127.0.0.1:53612 #24 (2 connections now open)
+Mon May  1 22:51:43.648 [conn23] end connection 127.0.0.1:53610 (1 connection now open)
+Mon May  1 22:51:43.649 [initandlisten] connection accepted from 127.0.0.1:53616 #25 (2 connections now open)
+Mon May  1 22:51:43.675 [conn24] end connection 127.0.0.1:53612 (1 connection now open)
+Mon May  1 22:51:43.675 [initandlisten] connection accepted from 127.0.0.1:53618 #26 (2 connections now open)

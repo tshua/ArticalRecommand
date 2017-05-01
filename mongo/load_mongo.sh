@@ -2,9 +2,9 @@
 
 option=0
 
-DB_PATH1="/data/db/ArticleRecommend/RS_A"
-DB_PATH2="/data/db/ArticleRecommend/RS_B"
-DB_PATH3="/data/db/ArticleRecommend/RS_C"
+DB_PATH1="/data/db/ArticalRecommend/RS_A"
+DB_PATH2="/data/db/ArticalRecommend/RS_B"
+DB_PATH3="/data/db/ArticalRecommend/RS_C"
 
 DB_CONF1="../conf/mongo_rsa.conf"
 DB_CONF2="../conf/mongo_rsb.conf"
@@ -63,15 +63,15 @@ else
 fi
 
 nohup mongod --config $DB_CONF1 > $DB_LOG1 2>&1 & 
-echo "start RS_A"
+echo "start RS_A done"
 nohup mongod --config $DB_CONF2 > $DB_LOG2 2>&1 & 
-echo "start RS_B"
+echo "start RS_B done"
 nohup mongod --config $DB_CONF3 > $DB_LOG3 2>&1 & 
-echo "start RS_C"
+echo "start RS_C done"
 
 if [ $option -eq 1 ]
 then
-	sleep 1s
+	sleep 3s
 	echo "init rs config"	
 	mongo 127.0.0.1:27017 $DB_SETTING
 fi

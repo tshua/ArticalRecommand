@@ -1,0 +1,97 @@
+2017-04-25 00:18:01 [scrapy.utils.log] INFO: Scrapy 1.3.3 started (bot: data_spider)
+2017-04-25 00:18:01 [scrapy.utils.log] INFO: Overridden settings: {'BOT_NAME': 'data_spider', 'NEWSPIDER_MODULE': 'data_spider.spiders', 'SPIDER_MODULES': ['data_spider.spiders']}
+2017-04-25 00:18:01 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2017-04-25 00:18:01 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-04-25 00:18:01 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-04-25 00:18:01 [scrapy.middleware] INFO: Enabled item pipelines:
+['data_spider.pipelines.InsertToutiaoToMongo']
+2017-04-25 00:18:01 [scrapy.core.engine] INFO: Spider opened
+2017-04-25 00:18:01 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-04-25 00:18:01 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-04-25 00:18:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1> (referer: None)
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/group/6412033420403179778/> from <GET http://toutiao.com/group/6412033420403179778/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/group/6412375128335712514/> from <GET http://toutiao.com/group/6412375128335712514/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/group/6411410483170132226/> from <GET http://toutiao.com/group/6411410483170132226/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/group/6412488333717553410/> from <GET http://toutiao.com/group/6412488333717553410/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/group/6412544700675358977/> from <GET http://toutiao.com/group/6412544700675358977/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/group/6412543845058674946/> from <GET http://toutiao.com/group/6412543845058674946/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/a6412375128335712514/> from <GET http://www.toutiao.com/group/6412375128335712514/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/a6412033420403179778/> from <GET http://www.toutiao.com/group/6412033420403179778/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://t.m.youth.cn/transfer/toutiao/url/3g.youth.cn/rmtj/201704/t20170424_9572203.htm?tt_group_id=6411410483170132226> from <GET http://www.toutiao.com/group/6411410483170132226/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/a6412543845058674946/> from <GET http://www.toutiao.com/group/6412543845058674946/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/a6412544700675358977/> from <GET http://www.toutiao.com/group/6412544700675358977/>
+2017-04-25 00:18:03 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://www.toutiao.com/a6412488333717553410/> from <GET http://www.toutiao.com/group/6412488333717553410/>
+2017-04-25 00:18:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://t.m.youth.cn/transfer/toutiao/url/3g.youth.cn/rmtj/201704/t20170424_9572203.htm?tt_group_id=6411410483170132226> (referer: http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1)
+2017-04-25 00:18:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/a6412543845058674946/> (referer: http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1)
+2017-04-25 00:18:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/a6412544700675358977/> (referer: http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1)
+2017-04-25 00:18:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/a6412488333717553410/> (referer: http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1)
+2017-04-25 00:18:03 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.toutiao.com/a6412543845058674946/>
+{'artical_time': '2017-04-24 20:43',
+ 'artical_url': '0a45905f0f16f59feb7dc737728d39b9.html',
+ 'collect_time': 1493050683,
+ 'source': '头条',
+ 'title': '三个女婿为争一块“钱”愁坏了老丈人！',
+ 'title_hash': '0a45905f0f16f59feb7dc737728d39b9'}
+2017-04-25 00:18:03 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.toutiao.com/a6412544700675358977/>
+{'artical_time': '2017-04-24 20:47',
+ 'artical_url': '680a3717dc0e451a058942e46f556760.html',
+ 'collect_time': 1493050683,
+ 'source': '头条',
+ 'title': '因我没生儿子，被妯娌看不起，现在我享女儿福，她被儿媳扫地出门',
+ 'title_hash': '680a3717dc0e451a058942e46f556760'}
+2017-04-25 00:18:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/a6412375128335712514/> (referer: http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1)
+2017-04-25 00:18:03 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.toutiao.com/a6412488333717553410/>
+{'artical_time': '2017-04-24 16:58',
+ 'artical_url': '6a15d2ce47015833d96d7cd0367290a4.html',
+ 'collect_time': 1493050683,
+ 'source': '头条',
+ 'title': '汽车改加92号汽油后，发现提速费劲、无故熄火等问题是咋回事？',
+ 'title_hash': '6a15d2ce47015833d96d7cd0367290a4'}
+2017-04-25 00:18:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.toutiao.com/a6412033420403179778/> (referer: http://www.toutiao.com/api/pc/feed/?category=news_society&utm_source=toutiao&widen=1&max_behot_time=1493050681&max_behot_time_tmp=1493050681&tadrequire=true&as=A115681FDC5A156&cp=58FCFA5125769E1)
+2017-04-25 00:18:04 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.toutiao.com/a6412033420403179778/>
+{'artical_time': '2017-04-23 11:40',
+ 'artical_url': '97822f7a3029701c27bd9ff4fada8ca1.html',
+ 'collect_time': 1493050684,
+ 'source': '头条',
+ 'title': '性工作者退休后如何活得体面而潇洒',
+ 'title_hash': '97822f7a3029701c27bd9ff4fada8ca1'}
+2017-04-25 00:18:04 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-04-25 00:18:04 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 9042,
+ 'downloader/request_count': 19,
+ 'downloader/request_method_count/GET': 19,
+ 'downloader/response_bytes': 79937,
+ 'downloader/response_count': 19,
+ 'downloader/response_status_count/200': 7,
+ 'downloader/response_status_count/301': 12,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 4, 24, 16, 18, 4, 47955),
+ 'item_scraped_count': 4,
+ 'log_count/DEBUG': 24,
+ 'log_count/INFO': 7,
+ 'request_depth_max': 1,
+ 'response_received_count': 7,
+ 'scheduler/dequeued': 19,
+ 'scheduler/dequeued/memory': 19,
+ 'scheduler/enqueued': 19,
+ 'scheduler/enqueued/memory': 19,
+ 'start_time': datetime.datetime(2017, 4, 24, 16, 18, 1, 979032)}
+2017-04-25 00:18:04 [scrapy.core.engine] INFO: Spider closed (finished)

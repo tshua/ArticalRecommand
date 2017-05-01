@@ -1,0 +1,180 @@
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] MongoDB starting : pid=3403 port=27019 dbpath=/data/db/ArticleRecommend/RS_C 64-bit host=myarch
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] db version v3.4.1
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] git version: 5e103c4f5583e2566a45d740225dc250baacfbd7
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2k  26 Jan 2017
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] modules: none
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] build environment:
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-04-25T00:15:26.467+0800 I CONTROL  [initandlisten] options: { config: "../conf/mongo_rsc.conf", net: { bindIp: "127.0.0.1", port: 27019 }, replication: { replSet: "ArticleRecommend/127.0.0.1:27017" }, storage: { dbPath: "/data/db/ArticleRecommend/RS_C" } }
+2017-04-25T00:15:26.525+0800 I -        [initandlisten] Detected data files in /data/db/ArticleRecommend/RS_C created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2017-04-25T00:15:26.525+0800 I STORAGE  [initandlisten] 
+2017-04-25T00:15:26.525+0800 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2017-04-25T00:15:26.525+0800 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2017-04-25T00:15:26.525+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3455M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2017-04-25T00:15:26.938+0800 I STORAGE  [initandlisten] Starting WiredTigerRecordStoreThread local.oplog.rs
+2017-04-25T00:15:26.938+0800 I STORAGE  [initandlisten] The size storer reports that the oplog contains 1986 records totaling to 190745 bytes
+2017-04-25T00:15:26.938+0800 I STORAGE  [initandlisten] Scanning the oplog to determine where to place markers for truncation
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] 
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] 
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] 
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-04-25T00:15:26.980+0800 I CONTROL  [initandlisten] 
+2017-04-25T00:15:26.988+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/ArticleRecommend/RS_C/diagnostic.data'
+2017-04-25T00:15:26.989+0800 I NETWORK  [thread1] waiting for connections on port 27019
+2017-04-25T00:15:26.989+0800 W NETWORK  [replExecDBWorker-0] Failed to connect to 127.0.0.1:27017, in(checking socket for error after poll), reason: Connection refused
+2017-04-25T00:15:26.989+0800 W NETWORK  [replExecDBWorker-0] Failed to connect to 127.0.0.1:27018, in(checking socket for error after poll), reason: Connection refused
+2017-04-25T00:15:26.989+0800 I REPL     [replExecDBWorker-0] New replica set config in use: { _id: "ArticleRecommend", version: 1, protocolVersion: 1, members: [ { _id: 1, host: "127.0.0.1:27017", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 2, host: "127.0.0.1:27018", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 }, { _id: 3, host: "127.0.0.1:27019", arbiterOnly: false, buildIndexes: true, hidden: false, priority: 1.0, tags: {}, slaveDelay: 0, votes: 1 } ], settings: { chainingAllowed: true, heartbeatIntervalMillis: 2000, heartbeatTimeoutSecs: 10, electionTimeoutMillis: 10000, catchUpTimeoutMillis: 2000, getLastErrorModes: {}, getLastErrorDefaults: { w: 1, wtimeout: 0 }, replicaSetId: ObjectId('58fb06e78ce5dfb09a45ea25') } }
+2017-04-25T00:15:26.989+0800 I REPL     [replExecDBWorker-0] This node is 127.0.0.1:27019 in the config
+2017-04-25T00:15:26.989+0800 I REPL     [replExecDBWorker-0] transition to STARTUP2
+2017-04-25T00:15:26.989+0800 I REPL     [replExecDBWorker-0] Starting replication storage threads
+2017-04-25T00:15:26.990+0800 I REPL     [replExecDBWorker-0] Starting replication fetcher thread
+2017-04-25T00:15:26.990+0800 I REPL     [replExecDBWorker-0] Starting replication applier thread
+2017-04-25T00:15:26.990+0800 I REPL     [replExecDBWorker-0] Starting replication reporter thread
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T00:15:26.991+0800 I REPL     [rsSync] transition to RECOVERING
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27017 - HostUnreachable: Connection refused
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27018 - HostUnreachable: Connection refused
+2017-04-25T00:15:26.991+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27017; HostUnreachable: Connection refused
+2017-04-25T00:15:26.991+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27018; HostUnreachable: Connection refused
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27017 - HostUnreachable: Connection refused
+2017-04-25T00:15:26.991+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27018 - HostUnreachable: Connection refused
+2017-04-25T00:15:26.991+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27017; HostUnreachable: Connection refused
+2017-04-25T00:15:26.992+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27018; HostUnreachable: Connection refused
+2017-04-25T00:15:26.992+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T00:15:26.992+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T00:15:26.992+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27017 - HostUnreachable: Connection refused
+2017-04-25T00:15:26.992+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27017; HostUnreachable: Connection refused
+2017-04-25T00:15:26.992+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27018 - HostUnreachable: Connection refused
+2017-04-25T00:15:26.992+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27018; HostUnreachable: Connection refused
+2017-04-25T00:15:26.992+0800 I REPL     [rsSync] transition to SECONDARY
+2017-04-25T00:15:27.025+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50846 #1 (1 connection now open)
+2017-04-25T00:15:27.025+0800 I -        [conn1] end connection 127.0.0.1:50846 (1 connection now open)
+2017-04-25T00:15:27.026+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50850 #2 (1 connection now open)
+2017-04-25T00:15:27.026+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:50850 conn2: { driver: { name: "NetworkInterfaceASIO-Replication", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:15:27.064+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50858 #3 (2 connections now open)
+2017-04-25T00:15:27.064+0800 I -        [conn3] end connection 127.0.0.1:50858 (2 connections now open)
+2017-04-25T00:15:27.066+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50862 #4 (2 connections now open)
+2017-04-25T00:15:27.066+0800 I NETWORK  [conn4] received client metadata from 127.0.0.1:50862 conn4: { driver: { name: "NetworkInterfaceASIO-Replication", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:15:31.992+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T00:15:31.993+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T00:15:31.994+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 127.0.0.1:27017
+2017-04-25T00:15:31.994+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 127.0.0.1:27018
+2017-04-25T00:15:31.994+0800 I REPL     [ReplicationExecutor] Member 127.0.0.1:27017 is now in state SECONDARY
+2017-04-25T00:15:31.994+0800 I REPL     [ReplicationExecutor] Member 127.0.0.1:27018 is now in state SECONDARY
+2017-04-25T00:15:37.500+0800 I REPL     [ReplicationExecutor] Starting an election, since we've seen no PRIMARY in the past 10000ms
+2017-04-25T00:15:37.500+0800 I REPL     [ReplicationExecutor] conducting a dry run election to see if we could be elected
+2017-04-25T00:15:37.501+0800 I REPL     [ReplicationExecutor] VoteRequester(term 2 dry run) received a yes vote from 127.0.0.1:27017; response message: { term: 2, voteGranted: true, reason: "", ok: 1.0 }
+2017-04-25T00:15:37.501+0800 I REPL     [ReplicationExecutor] dry election run succeeded, running for election
+2017-04-25T00:15:37.502+0800 I REPL     [ReplicationExecutor] VoteRequester(term 3) received a yes vote from 127.0.0.1:27018; response message: { term: 3, voteGranted: true, reason: "", ok: 1.0 }
+2017-04-25T00:15:37.502+0800 I REPL     [ReplicationExecutor] election succeeded, assuming primary role in term 3
+2017-04-25T00:15:37.502+0800 I REPL     [ReplicationExecutor] transition to PRIMARY
+2017-04-25T00:15:37.502+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T00:15:37.503+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T00:15:37.503+0800 I REPL     [ReplicationExecutor] My optime is most up-to-date, skipping catch-up and completing transition to primary.
+2017-04-25T00:15:37.503+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 127.0.0.1:27018
+2017-04-25T00:15:37.504+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Successfully connected to 127.0.0.1:27017
+2017-04-25T00:15:37.993+0800 I REPL     [rsSync] transition to primary complete; database writes are now permitted
+2017-04-25T00:15:43.029+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50876 #5 (3 connections now open)
+2017-04-25T00:15:43.030+0800 I NETWORK  [conn5] received client metadata from 127.0.0.1:50876 conn5: { driver: { name: "NetworkInterfaceASIO-RS", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:15:43.037+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50878 #6 (4 connections now open)
+2017-04-25T00:15:43.037+0800 I NETWORK  [conn6] received client metadata from 127.0.0.1:50878 conn6: { driver: { name: "NetworkInterfaceASIO-RS", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:15:43.069+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50880 #7 (5 connections now open)
+2017-04-25T00:15:43.069+0800 I NETWORK  [conn7] received client metadata from 127.0.0.1:50880 conn7: { driver: { name: "NetworkInterfaceASIO-RS", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:15:43.071+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50882 #8 (6 connections now open)
+2017-04-25T00:15:43.071+0800 I NETWORK  [conn8] received client metadata from 127.0.0.1:50882 conn8: { driver: { name: "NetworkInterfaceASIO-RS", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:16:47.554+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50896 #9 (7 connections now open)
+2017-04-25T00:16:47.554+0800 I NETWORK  [conn9] received client metadata from 127.0.0.1:50896 conn9: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:16:48.977+0800 I -        [conn9] end connection 127.0.0.1:50896 (7 connections now open)
+2017-04-25T00:18:01.978+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50906 #10 (7 connections now open)
+2017-04-25T00:18:01.978+0800 I NETWORK  [conn10] received client metadata from 127.0.0.1:50906 conn10: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:18:03.760+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50932 #11 (8 connections now open)
+2017-04-25T00:18:03.761+0800 I NETWORK  [conn11] received client metadata from 127.0.0.1:50932 conn11: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:18:04.047+0800 I -        [conn10] end connection 127.0.0.1:50906 (8 connections now open)
+2017-04-25T00:18:04.047+0800 I -        [conn11] end connection 127.0.0.1:50932 (8 connections now open)
+2017-04-25T00:18:31.201+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50936 #12 (7 connections now open)
+2017-04-25T00:18:31.201+0800 I NETWORK  [conn12] received client metadata from 127.0.0.1:50936 conn12: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:19:52.361+0800 I -        [conn12] end connection 127.0.0.1:50936 (7 connections now open)
+2017-04-25T00:42:09.353+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51100 #13 (7 connections now open)
+2017-04-25T00:42:09.356+0800 I NETWORK  [conn13] received client metadata from 127.0.0.1:51100 conn13: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:42:14.542+0800 I -        [conn13] end connection 127.0.0.1:51100 (7 connections now open)
+2017-04-25T00:42:47.359+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51118 #14 (7 connections now open)
+2017-04-25T00:42:47.359+0800 I NETWORK  [conn14] received client metadata from 127.0.0.1:51118 conn14: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:43:02.798+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51152 #15 (8 connections now open)
+2017-04-25T00:43:02.798+0800 I NETWORK  [conn15] received client metadata from 127.0.0.1:51152 conn15: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:43:33.252+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51188 #16 (9 connections now open)
+2017-04-25T00:43:33.252+0800 I NETWORK  [conn16] received client metadata from 127.0.0.1:51188 conn16: { driver: { name: "NetworkInterfaceASIO-RS", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:44:29.233+0800 I -        [conn14] end connection 127.0.0.1:51118 (9 connections now open)
+2017-04-25T00:44:29.233+0800 I -        [conn15] end connection 127.0.0.1:51152 (9 connections now open)
+2017-04-25T00:45:28.769+0800 I -        [conn16] end connection 127.0.0.1:51188 (7 connections now open)
+2017-04-25T00:47:51.226+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51466 #17 (7 connections now open)
+2017-04-25T00:47:51.227+0800 I NETWORK  [conn17] received client metadata from 127.0.0.1:51466 conn17: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:49:22.143+0800 I -        [conn17] end connection 127.0.0.1:51466 (7 connections now open)
+2017-04-25T00:49:26.683+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51484 #18 (7 connections now open)
+2017-04-25T00:49:26.683+0800 I NETWORK  [conn18] received client metadata from 127.0.0.1:51484 conn18: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:51:05.413+0800 I -        [conn18] end connection 127.0.0.1:51484 (7 connections now open)
+2017-04-25T00:51:51.683+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51514 #19 (7 connections now open)
+2017-04-25T00:51:51.683+0800 I NETWORK  [conn19] received client metadata from 127.0.0.1:51514 conn19: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:52:38.670+0800 I -        [conn19] end connection 127.0.0.1:51514 (7 connections now open)
+2017-04-25T00:54:16.860+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51518 #20 (7 connections now open)
+2017-04-25T00:54:16.861+0800 I NETWORK  [conn20] received client metadata from 127.0.0.1:51518 conn20: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:56:54.301+0800 I -        [conn20] end connection 127.0.0.1:51518 (7 connections now open)
+2017-04-25T00:57:12.879+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51620 #21 (7 connections now open)
+2017-04-25T00:57:12.881+0800 I NETWORK  [conn21] received client metadata from 127.0.0.1:51620 conn21: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:57:28.149+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51654 #22 (8 connections now open)
+2017-04-25T00:57:28.149+0800 I NETWORK  [conn22] received client metadata from 127.0.0.1:51654 conn22: { driver: { name: "PyMongo", version: "3.4.0" }, os: { type: "Linux", name: "arch", architecture: "x86_64", version: "4.9.11-1-ARCH" }, platform: "CPython 3.6.0.final.0" }
+2017-04-25T00:58:59.121+0800 I -        [conn21] end connection 127.0.0.1:51620 (8 connections now open)
+2017-04-25T00:58:59.121+0800 I -        [conn22] end connection 127.0.0.1:51654 (8 connections now open)
+2017-04-25T00:59:40.382+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:51776 #23 (7 connections now open)
+2017-04-25T00:59:40.383+0800 I NETWORK  [conn23] received client metadata from 127.0.0.1:51776 conn23: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.1" }, os: { type: "Linux", name: "Arch", architecture: "x86_64", version: "rolling" } }
+2017-04-25T00:59:58.473+0800 I -        [conn23] end connection 127.0.0.1:51776 (7 connections now open)
+2017-04-25T01:00:31.780+0800 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] closing listening socket: 7
+2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27019.sock
+2017-04-25T01:00:31.780+0800 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] shutting down replication subsystems
+2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] Stopping replication reporter thread
+2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] Stopping replication fetcher thread
+2017-04-25T01:00:31.780+0800 I REPL     [signalProcessingThread] Stopping replication applier thread
+2017-04-25T01:00:31.857+0800 I -        [conn6] end connection 127.0.0.1:50878 (6 connections now open)
+2017-04-25T01:00:31.858+0800 I -        [conn2] end connection 127.0.0.1:50850 (5 connections now open)
+2017-04-25T01:00:31.861+0800 I -        [conn7] end connection 127.0.0.1:50880 (4 connections now open)
+2017-04-25T01:00:31.861+0800 I -        [conn4] end connection 127.0.0.1:50862 (4 connections now open)
+2017-04-25T01:00:32.304+0800 I ASIO     [ReplicationExecutor] dropping unhealthy pooled connection to 127.0.0.1:27018
+2017-04-25T01:00:32.304+0800 I ASIO     [ReplicationExecutor] after drop, pool was empty, going to spawn some connections
+2017-04-25T01:00:32.304+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T01:00:32.304+0800 I ASIO     [ReplicationExecutor] dropping unhealthy pooled connection to 127.0.0.1:27017
+2017-04-25T01:00:32.304+0800 I ASIO     [ReplicationExecutor] after drop, pool was empty, going to spawn some connections
+2017-04-25T01:00:32.304+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T01:00:32.304+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27018 - HostUnreachable: Connection refused
+2017-04-25T01:00:32.304+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27018; HostUnreachable: Connection refused
+2017-04-25T01:00:32.304+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27017 - HostUnreachable: Connection refused
+2017-04-25T01:00:32.304+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T01:00:32.304+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27017; HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27018 - HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27018; HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27017 - HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27018
+2017-04-25T01:00:32.305+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27017; HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Connecting to 127.0.0.1:27017
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27018 - HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27018; HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I ASIO     [NetworkInterfaceASIO-Replication-0] Failed to connect to 127.0.0.1:27017 - HostUnreachable: Connection refused
+2017-04-25T01:00:32.305+0800 I REPL     [ReplicationExecutor] Error in heartbeat request to 127.0.0.1:27017; HostUnreachable: Connection refused
+2017-04-25T01:00:32.323+0800 I REPL     [signalProcessingThread] Stopping replication storage threads
+2017-04-25T01:00:32.324+0800 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2017-04-25T01:00:32.332+0800 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2017-04-25T01:00:32.373+0800 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2017-04-25T01:00:32.373+0800 I CONTROL  [signalProcessingThread] now exiting
+2017-04-25T01:00:32.373+0800 I CONTROL  [signalProcessingThread] shutting down with code:0
+2017-04-25T01:00:32.373+0800 I CONTROL  [initandlisten] shutting down with code:0

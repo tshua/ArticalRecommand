@@ -31,7 +31,8 @@ class TouTiaoSpider(scrapy.Spider):
 
     def parse(self, response):
         '''获取ajax传来的list,并生成文章的url'''
-        articals = json.loads(response.body)
+        body = response.body.decode('utf-8')
+        articals = json.loads(body)
         for artical in articals['data']:
             if ('group' in artical['source_url']):  # 过滤广告
                 toutiaoItem = ToutiaoItem()

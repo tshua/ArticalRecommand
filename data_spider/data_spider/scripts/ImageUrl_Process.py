@@ -10,8 +10,9 @@ def update_item(line, db):
 
 #db.Account.update({"UserName":"libing"},{"$set":{"Email":"libing@126.com","Password":"123"}})
 
-conn = pymongo.Connection('127.0.0.1',27018)
-db = conn['ArticalRecommend']
+client = pymongo.MongoClient(host='127.0.0.1', port=27018)
+db = client['ArticalRecommend']
+
 with open("tmp_imageurl.txt") as f:
     for line in f:
-        update_item(line,db)
+        update_item(line, db)

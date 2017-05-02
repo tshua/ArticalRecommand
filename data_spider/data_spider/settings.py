@@ -92,5 +92,5 @@ ITEM_PIPELINES = {
 
 # MongoDB address
 MONGO_HOST = "127.0.0.1"  # 主机IP
-MONGO_PORT = 27019  # 端口号
+MONGO_PORT = 27018  # 端口号
 MONGO_DB = "ArticalRecommend"  # 库名

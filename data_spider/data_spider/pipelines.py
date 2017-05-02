@@ -35,5 +35,7 @@ class InsertToutiaoToMongo(object):
         self.client.close()
 
     def process_item(self, item, spider):
+        if (self.db[self.collection_name].find_one({'title':item['title']})):
+            return item;
         self.db[self.collection_name].insert(dict(item))
         return item

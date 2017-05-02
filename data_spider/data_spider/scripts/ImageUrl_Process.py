@@ -13,6 +13,6 @@ def update_item(line, db):
 client = pymongo.MongoClient(host='127.0.0.1', port=27018)
 db = client['ArticalRecommend']
 
-with open("tmp_imageurl.txt") as f:
+with open("tmp_imageurl") as f:
     for line in f:
         update_item(line, db)

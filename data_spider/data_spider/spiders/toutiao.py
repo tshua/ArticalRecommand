@@ -37,7 +37,7 @@ class TouTiaoSpider(scrapy.Spider):
                 toutiaoItem = ToutiaoItem()
                 toutiaoItem['title'] = artical['title']
                 url = self.base_url + artical['source_url']
-                toutiaoItem['image_url'] = ''
+                toutiaoItem['image_url'] = '#'  # '#'代表没有缩略图
                 if ('image_list' in artical.keys()):
                     for image in artical['image_list']:     # 只要一张图片,省事
                         toutiaoItem['image_url'] = str(image)
@@ -73,5 +73,5 @@ class TouTiaoSpider(scrapy.Spider):
         line =  '|'.join(arr)
         line += "\n"
         line = bytes(line,'utf-8')
-        with open('tmp_file_' + str(self.current_time), 'ab') as f:
+        with open('tmp_imageurl.txt', 'ab') as f:
             f.writelines([line])

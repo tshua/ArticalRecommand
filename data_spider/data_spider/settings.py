@@ -50,6 +50,11 @@ ROBOTSTXT_OBEY = False
 #    'data_spider.middlewares.DataSpiderSpiderMiddleware': 543,
 #}
 
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None,
+    'data_spider.middlewares.RotateUserAgentMiddleware':400,
+}
+
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {

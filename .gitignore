@@ -1,3 +1,5 @@
 .idea
-log
+*log*
 .DS_Store
+*.pyc
+*/html/

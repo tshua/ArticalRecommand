@@ -76,6 +76,6 @@ class TouTiaoSpider(scrapy.Spider):
         '''把list信息写入临时文件'''
         arr = [ item['title'], item['image_url'], item['source_url'], item['catagore'] ]
         line =  '|'.join(arr)
-        # line = bytes(line,'utf-8')
+        line = bytes(line,'utf-8')
         with open('tmp_imageurl.txt', 'ab') as f:
             f.writelines([line])

@@ -42,10 +42,10 @@ class InsertToutiaoToMongo(object):
         artical =  dict(item)
         artical_tag = {}
         artical_tag['tag'] = artical['tag']
-        artical_tag['catagore'] = artical['catagore']
+        # artical_tag['catagore'] = artical['catagore']
 
         del(artical['tag'])
-        del(artical['catagore'])
+        # del(artical['catagore'])
         a_id = self.db[self.artical_name].insert(artical)
 
         artical_tag['a_id'] = str(a_id)

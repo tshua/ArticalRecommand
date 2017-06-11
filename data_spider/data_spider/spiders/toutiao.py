@@ -47,7 +47,7 @@ class TouTiaoSpider(scrapy.Spider):
                 toutiaoItem['source_url'] = url
                 toutiaoItem['catagore'] = artical['chinese_tag']
                 self.writeToTmpFile(toutiaoItem)
-                time.sleep(0.1)
+                time.sleep(0.3)
                 yield scrapy.Request(url, self.parseSourceUrl)
 
     def parseSourceUrl(self, response):

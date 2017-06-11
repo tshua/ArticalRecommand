@@ -13,6 +13,7 @@ def update_item(line, db):
 client = pymongo.MongoClient(host='127.0.0.1', port=27018)
 db = client['ArticalRecommend']
 
-with open("tmp_imageurl") as f:
+with open("tmp_imageurl", 'rb') as f:
     for line in f:
+        line = line.decode("utf-8")
         update_item(line, db)

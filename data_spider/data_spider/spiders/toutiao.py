@@ -7,6 +7,7 @@ from scrapy.selector import Selector
 import json
 import time
 import data_spider.common
+import re
 
 
 class TouTiaoSpider(scrapy.Spider):
@@ -44,6 +45,7 @@ class TouTiaoSpider(scrapy.Spider):
                         toutiaoItem['image_url'] = str(image)
                         break
                 toutiaoItem['source_url'] = url
+                toutiaoItem['catagore'] = artical['chinese_tag']
                 self.writeToTmpFile(toutiaoItem)
                 time.sleep(0.1)
                 yield scrapy.Request(url, self.parseSourceUrl)
@@ -56,6 +58,7 @@ class TouTiaoSpider(scrapy.Spider):
             toutiaoItem['title'] = \
                 Selector(text=article_content[0]).xpath('//h1 [@class="article-title"]/text()').extract()[0]
             toutiaoItem['source'] = '头条'
+            toutiaoItem['tag'] = Selector(text=article_content[0]).xpath('//li [@class="label-item"]/text()').extract()
             toutiaoItem['title_hash'] = data_spider.common.get_md5_value(toutiaoItem['title'].encode("utf-8"))
             toutiaoItem['artical_url'] = str(toutiaoItem['title_hash']) + ".html"
             article_time = Selector(text=article_content[0]).xpath('//span [@class="time"]/text()').extract()
@@ -63,14 +66,15 @@ class TouTiaoSpider(scrapy.Spider):
             if (article_time):
                 toutiaoItem['artical_time'] = article_time[0]
             toutiaoItem['collect_time'] = int(time.time())
-            article_content = bytes(article_content[0], "utf-8")
+            article_content, number  =  re.subn(r"href=\".*\"", '', article_content[0])
+            article_content = bytes(article_content, "utf-8")
             with open("./html/" + toutiaoItem['artical_url'], 'wb') as f:
                 f.write(article_content)
             yield toutiaoItem
 
     def writeToTmpFile(self, item):
         '''把list信息写入临时文件'''
-        arr = [ item['title'], item['image_url'], item['source_url'] ]
+        arr = [ item['title'], item['image_url'], item['source_url'], item['catagore'] ]
         line =  '|'.join(arr)
         line += "\n"
         line = bytes(line,'utf-8')

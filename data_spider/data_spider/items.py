@@ -22,4 +22,6 @@ class ToutiaoItem(scrapy.Item):
     title_hash = scrapy.Field()
     collect_time = scrapy.Field()
     artical_time = scrapy.Field()
+    catagore = scrapy.Field()
+    tag = scrapy.Field()
 

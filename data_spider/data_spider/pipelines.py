@@ -12,7 +12,9 @@ class DataSpiderPipeline(object):
         return item
 
 class InsertToutiaoToMongo(object):
-    collection_name = 'artical'
+    artical_name = 'artical'
+    artical_tag_name = 'artical_tag'
+
 
     def __init__(self, mongo_host, mongo_port, mongo_db):
         self.mongo_host = mongo_host
@@ -35,7 +37,17 @@ class InsertToutiaoToMongo(object):
         self.client.close()
 
     def process_item(self, item, spider):
-        if (self.db[self.collection_name].find_one({'title':item['title']})):
+        if (self.db[self.artical_name].find_one({'title':item['title']})):
             return item
-        self.db[self.collection_name].insert(dict(item))
+        artical =  dict(item)
+        artical_tag = {}
+        artical_tag['tag'] = artical['tag']
+        artical_tag['catagore'] = artical['catagore']
+
+        del(artical['tag'])
+        del(artical['catagore'])
+        a_id = self.db[self.artical_name].insert(artical)
+
+        artical_tag['a_id'] = str(a_id)
+        self.db[self.artical_tag_name].insert(artical_tag)
         return item

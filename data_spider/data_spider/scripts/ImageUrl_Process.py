@@ -12,7 +12,7 @@ def update_item(line, db):
 
 #db.Account.update({"UserName":"libing"},{"$set":{"Email":"libing@126.com","Password":"123"}})
 
-client = pymongo.MongoClient(host='127.0.0.1', port=27018)
+client = pymongo.MongoClient(host='127.0.0.1', port=27017)
 db = client['ArticalRecommend']
 
 with open("tmp_imageurl", 'rb') as f:

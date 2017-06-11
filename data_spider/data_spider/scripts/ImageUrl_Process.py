@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # Filename: ImageUrl_Process.py
+# -*- coding:utf-8 -*-
 
 import pymongo
 
@@ -17,5 +18,5 @@ db = client['ArticalRecommend']
 
 with open("tmp_imageurl", 'rb') as f:
     for line in f:
-        line = line.decode("utf-8")
+        # line = line.decode("utf-8")
         update_item(line, db)

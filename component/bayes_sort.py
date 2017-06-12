@@ -6,92 +6,142 @@ from numpy import *
 import re
 import random
 import pymongo
+from bson import ObjectId
+import jieba
+import sys
 
-def fetchArtical(db): # 获取文章
-    artical = db.artical.find_one({'is_trained':{'$exists':False}})
-    print(artical)
+def fetchArticalTrain(db): # 获取训练文章
+    artical_tag = db.artical_tag.find_one({'catagore':{'$exists':True}, 'is_trained':{'$exists':False}})
+    if (not artical_tag):
+        exit(1)
+    artical = db.artical.find_one({'_id':ObjectId(artical_tag["a_id"])})
+    with open("../data_spider/html/" + artical['title_hash'] + ".html", "rb") as f:
+        artical_content = f.read().decode("utf-8")
+    artical_tag['is_trained'] = 1
+    db.artical_tag.save(artical_tag)
+    # print(artical_content)
+    artical_content = removeLabel(artical_content)
+    artical_content = jiebacut(artical_content)
+    artical_content = removeStopWords(artical_content)
+    return artical_content, artical_tag['catagore']
 
-def removetags(db): # 去除标签
-    return 1
+def fetchArticalClassify(db): # 获取待分类文章
+    # artical_tag = db.artical_tag.find_one({'catagore':{'$exists':False}})
+    artical_tag = db.artical_tag.find_one({'catagore':{'$exists':True}, 'is_trained':{'$exists':False}})
+    if (not artical_tag):
+        exit(1)
+    artical = db.artical.find_one({'_id':ObjectId(artical_tag["a_id"])})
+    with open("../data_spider/html/" + artical['title_hash'] + ".html", "rb") as f:
+        artical_content = f.read().decode("utf-8")
+    artical_tag['is_trained'] = 1 # 标记完之后就不会拿它去分类了
+    db.artical_tag.save(artical_tag)
+    # print(artical_content)
+    artical_content = removeLabel(artical_content)
+    artical_content = jiebacut(artical_content)
+    artical_content = removeStopWords(artical_content)
+    return artical_content, artical_tag['catagore']
 
+def removeLabel(content): # 去除标签 \ 空格 \ 换行 \ tab
+    dr = re.compile(r'<[^>]+>',re.S)
+    dd = dr.sub('', content)
+    dd = dd.replace("\n",'').replace(' ','').replace("\t",'').replace(".","_")
+    # print(dd)
+    return dd
 
-def loadDataSet():  # 创建样例数据
-    postingList = [['my', 'dog', 'has', 'flea', 'problems', 'help', 'please'],
-                   ['maybe', 'not', 'take', 'him', 'to', 'dog', 'park', 'stupid'],
-                   ['my', 'dalmation', 'is', 'so', 'cute', 'I', 'love', 'him'],
-                   ['stop', 'posting', 'stupid', 'worthless', 'garbage'],
-                   ['mr', 'licks', 'ate', 'my', 'steak', 'how', 'to', 'stop', 'him'],
-                   ['quit', 'buying', 'worthless', 'dog', 'food', 'stupid']]
-    classVec = [0, 1, 0, 1, 0, 1]  # 1代表脏话
-    return postingList, classVec
+def jiebacut(content): # 分词
+    seg_list = jieba.cut(content,cut_all=False)
+    tmp = []
+    for seg in seg_list:
+        tmp.append(seg)
+    seg_list = tmp
+    # print("jieba cut result:", "/ ".join(seg_list))
+    return seg_list
 
-def loadDataFromArtical():
-    return 1
+def removeStopWords(word_list): # 删除停词
+    with open("stopwords.txt", "r") as f:
+        for line in f:
+            line = line.replace("\n", '')
+            while(1):
+                if (line in word_list):
+                    word_list.remove(line)
+                    # print("remove" + line)
+                else:
+                    break
+    # print("remove stop words result:", "/ ".join(word_list))
+    return word_list
 
+def trainBayes(word_list, cata_num, db):
+    if (not db.bayes_words.find_one({'cata_num':-1})):
+        db.bayes_words.insert({'cata_num':-1, 'total':0})
+    item = db.bayes_words.find_one({'cata_num':-1})
+    item['total'] += len(word_list)
+    db.bayes_words.save(item) # 总词数
 
-def createVocabList(dataSet):  # 创建词库 这里就是直接把所有词去重后，当作词库
-    vocabSet = set([])
-    for document in dataSet:
-        vocabSet = vocabSet | set(document)
-    return list(vocabSet)
-
-
-def setOfWords2Vec(vocabList, inputSet):  # 文本词向量。词库中每个词当作一个特征，文本中就该词，该词特征就是1，没有就是0
-    returnVec = [0] * len(vocabList)
-    for word in inputSet:
-        if word in vocabList:
-            returnVec[vocabList.index(word)] = 1
+    item = db.bayes_words.find_one({'cata_num':cata_num})
+    if (not item):
+        db.bayes_words.insert({'cata_num':cata_num, 'total':0})
+        item = db.bayes_words.find_one({'cata_num':cata_num})
+    # print(item['total'])
+    # print(len(word_list))
+    item['total'] = item['total'] + len(word_list)
+    for word in word_list:
+        if (word in item):
+            item[word] += 1
         else:
-            print("the word: %s is not in my Vocabulary!" % word)
-    return returnVec
+            item[word] = 1
+    # print(item)
+    db.bayes_words.save(item)
+
+def classify(word_list, db):
+    total_num = db.bayes_words.find_one({'cata_num':-1})['total']
+    cata_total = {}
+    for item in db.bayes_words.find({"cata_num":{"$gte":0}},{"total":1, "cata_num":1}):
+        cata_total[item['cata_num']] = item['total']
+
+    catagores = []
+    for cata in db.catagore.find():
+        catagores.append(cata['num'])
 
 
-def trainNB0(trainMatrix, trainCategory):
-    numTrainDocs = len(trainMatrix)
-    numWords = len(trainMatrix[0])
-    pAbusive = sum(trainCategory) / float(numTrainDocs) # 脏话的概率
-    p0Num = ones(numWords)  # 防止某个类别计算出的概率为0，导致最后相乘都为0，所以初始词都赋值1，分母赋值为2.
-    p1Num = ones(numWords)
-    p0Denom = 2
-    p1Denom = 2
-    for i in range(numTrainDocs):
-        if trainCategory[i] == 1:
-            p1Num += trainMatrix[i] # 矩阵
-            p1Denom += sum(trainMatrix[i]) # 所有词的个数
-        else:
-            p0Num += trainMatrix[i]
-            p0Denom += sum(trainMatrix[i])
-    p1Vect = log(p1Num / p1Denom)  # 这里使用了Log函数，方便计算，因为最后是比较大小，所有对结果没有影响。
-    p0Vect = log(p0Num / p0Denom)
-    return p0Vect, p1Vect, pAbusive
+    cata_probability = {}
+    for word in word_list:
+        # 计算这个词一共出现了多少次
+        word_num = 0
+        for cata in catagores:
+            item = db.bayes_words.find_one({"cata_num":cata, word:{'$exists':True}},{word:1, "cata_num":1})
+            if (item):
+                word_num += item[word]
+        for cata in catagores:
+            item = db.bayes_words.find_one({"cata_num":cata, word:{'$exists':True}},{word:1, "cata_num":1})
+            if (item):
+                if (cata in cata_probability):
+                    cata_probability[cata] += (item[word]/cata_total[cata]) * (cata_total[cata]/total_num) / (word_num/total_num)
+                else:
+                    cata_probability[cata] = (item[word]/cata_total[cata]) * (cata_total[cata]/total_num) / (word_num/total_num)
 
-
-def classifyNB(vec2Classify, p0Vec, p1Vec, pClass1):  # 比较概率大小进行判断，
-    p1 = sum(vec2Classify * p1Vec) + log(pClass1)
-    p0 = sum(vec2Classify * p0Vec) + log(1 - pClass1)
-    if p1 > p0:
-        return 1
-    else:
-        return 0
-
-
-def testingNB():
-    listOPosts, listClasses = loadDataSet()
-    myVocabList = createVocabList(listOPosts)
-    trainMat = []
-    for postinDoc in listOPosts:
-        trainMat.append(setOfWords2Vec(myVocabList, postinDoc))
-    p0V, p1V, pAb = trainNB0(array(trainMat), array(listClasses))
-    testEntry = ['love', 'my', 'dalmation']  # 测试数据
-    thisDoc = array(setOfWords2Vec(myVocabList, testEntry))
-    print(testEntry, 'classified as: ', classifyNB(thisDoc, p0V, p1V, pAb))
-    testEntry = ['stupid', 'garbage']  # 测试数据
-    thisDoc = array(setOfWords2Vec(myVocabList, testEntry))
-    print(testEntry, 'classified as: ', classifyNB(thisDoc, p0V, p1V, pAb))
-
+    print(cata_probability)
+    max = cata_probability[0]
+    res = 0
+    for cata in cata_probability:
+        if (max < cata_probability[cata]):
+            max = cata_probability[cata]
+            res = cata
+    print(str(res) + "is the max catagore.")
+    return res
 
 if __name__ == '__main__':
     client = pymongo.MongoClient(host='127.0.0.1', port=27017)
     db = client['ArticalRecommend']
-    fetchArtical(db)
-    # testingNB()
+    if (sys.argv[1] == "train"):
+        word_list,cata_num = fetchArticalTrain(db)
+        trainBayes(word_list, cata_num, db)
+    elif (sys.argv[1] == "classify"):
+        word_list,cata_num = fetchArticalClassify(db)
+        res = classify(word_list, db)
+        if (res == cata_num):
+            print("1111")
+        else:
+            print("2222")
+    else:
+        print("para error. train/classify")
+    exit(0)

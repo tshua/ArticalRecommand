@@ -74,8 +74,10 @@ class TouTiaoSpider(scrapy.Spider):
 
     def writeToTmpFile(self, item):
         '''把list信息写入临时文件'''
-        arr = [ item['title'], item['image_url'], item['source_url'], item['catagore'] ]
+        title_hash = data_spider.common.get_md5_value(item['title'].encode("utf-8"))
+        arr = [ title_hash, item['image_url'], item['source_url'], item['catagore'] ]
         line =  '|'.join(arr)
+        line = line + "\n"
         line = bytes(line,'utf-8')
         with open('tmp_imageurl.txt', 'ab') as f:
-            f.writelines([line])
+            f.write([line])

@@ -37,7 +37,7 @@ class InsertToutiaoToMongo(object):
         self.client.close()
 
     def process_item(self, item, spider):
-        if (self.db[self.artical_name].find_one({'title':item['title']})):
+        if (self.db[self.artical_name].find_one({'title_hash':item['title_hash']})):
             return item
         artical =  dict(item)
         artical_tag = {}

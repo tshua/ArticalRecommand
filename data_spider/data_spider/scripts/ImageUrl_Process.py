@@ -7,8 +7,9 @@ import pymongo
 
 def update_item(line, db):
     line = line.split('|')
-    artical = db.artical.find_one({"title":line[0]})
+    artical = db.artical.find_one({"title_hash":line[0]})
     if(not artical):
+        print("title_hash not exists")
         return
     db['artical'].update({'title':line[0]}, {'$set':{'image_url':line[1], 'source_url':line[2]}})
     db['artical_tag'].update({'a_id':str(artical['_id'])}, {'$set':{'catagore':line[3]}})

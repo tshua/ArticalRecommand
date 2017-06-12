@@ -80,4 +80,4 @@ class TouTiaoSpider(scrapy.Spider):
         line = line + "\n"
         line = bytes(line,'utf-8')
         with open('tmp_imageurl.txt', 'ab') as f:
-            f.write([line])
+            f.write(line)

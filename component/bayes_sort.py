@@ -5,12 +5,15 @@
 from numpy import *
 import re
 import random
+import pymongo
 
-catagorys = ['news_society', 'news_society', 'news_entertainment', 'news_tech', 'news_sports', 'news_car',
-                  'news_finance', 'funny', 'news_military', 'news_world', 'news_fashion',
-                  'news_travel', 'news_discovery', 'news_baby', 'news_regimen', 'news_story', 'news_essay', 'news_game',
-                  'news_history', 'news_food']
-    # 社会 娱乐 科技 体育 汽车 财经 搞笑 更多 军事 国际 时尚 旅游 探索 育儿 养生 故事 美文 游戏 历史 美食
+def fetchArtical(db): # 获取文章
+    artical = db.artical.find_one({'is_trained':{'$exists':False}})
+    print(artical)
+
+def removetags(db): # 去除标签
+    return 1
+
 
 def loadDataSet():  # 创建样例数据
     postingList = [['my', 'dog', 'has', 'flea', 'problems', 'help', 'please'],
@@ -88,4 +91,7 @@ def testingNB():
 
 
 if __name__ == '__main__':
-    testingNB()
+    client = pymongo.MongoClient(host='127.0.0.1', port=27017)
+    db = client['ArticalRecommend']
+    fetchArtical(db)
+    # testingNB()
